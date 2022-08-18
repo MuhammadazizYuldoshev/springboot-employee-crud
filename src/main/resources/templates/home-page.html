@@ -42,6 +42,7 @@
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
+                    <th scope="col">Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">LastName</th>
                     <th scope="col">Position</th>
@@ -52,6 +53,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="employee:${employeeList}">
+                    <td th:text="${employee.id}"></td>
                     <td th:text="${employee.name}"></td>
                     <td th:text="${employee.lastname}"></td>
                     <td th:text="${employee.position}"></td>
@@ -61,7 +63,7 @@
                                                             style="font-size: 25px"></i></a>
                     </td>
                     <td>
-                        <a href="/edituser/${user.id}"><i class="fa-solid fa-pen-to-square text-primary"
+                        <a th:href="@{'/edit/' + ${employee.id}}"><i class="fa-solid fa-pen-to-square text-primary"
                                                           style="font-size: 25px"></i></a>
                     </td>
                 </tr>
