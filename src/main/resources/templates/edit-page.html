@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EMPLOYEE UPDATE PAGE</title>
+
+    <!--     STYLEESHEET-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+          integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+
+    <!--    BOOTSTRAP SCRIPTS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+            integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h1 class="text-center mb-3">UPDATE EMPLOYEE</h1>
+
+<form th:action="@{/save}" th:object="${employeeList}" method="post">
+    <div style="margin-top: 30px; margin-bottom: 400px; margin-right: 400px; margin-left: 400px">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="exampleInputEmail1">NAME</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{name}"/>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">LAST NAME</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" th:field="*{lastname}"/>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPhonenumber1">POSITION</label>
+            <input type="text" class="form-control" id="exampleInputPhonenumber1"  th:field="*{position}"/>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputborn1">SALARY</label>
+            <input type="number" min="0" class="form-control" id="exampleInputborn1"  th:field="*{salary}"/>
+        </div>
+
+        <div style="text-align: center">
+            <button type="submit" class="btn btn-outline-warning">UPDATE</button>
+            <a href="/" class="btn btn-outline-danger">BACK</a>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>
