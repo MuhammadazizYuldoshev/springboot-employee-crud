@@ -14,7 +14,7 @@ public class Controller {
     @Autowired
     private EmployeeService employeeService;
 
-   @RequestMapping("/")
+   @GetMapping("/")
     public String homePage(Model model){
        List<Employee> allEmployees = employeeService.getAllEmployees();
        model.addAttribute("employeeList",allEmployees);
@@ -38,6 +38,16 @@ public class Controller {
         return "edit-page";
 
     }
+
+
+    @GetMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable(name = "id") int id){
+       employeeService.delete(id);
+
+       return "redirect:/";
+    }
+
+
 
 
 }
